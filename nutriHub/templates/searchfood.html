@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <title>Calories Counter</title>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}">
+  {% load static %}
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Work Sans', Arial, sans-serif;
+     
+      background: url('{% static 'images/bg14.jpeg' %}') center center fixed no-repeat, linear-gradient(to right, #cce8cc, #f6efee);
+      background-size: cover;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to right, #cce8cc, #f6efee);
+      padding: 10px 20px;
+    }
+
+    .navbar {
+      display: flex;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      padding: 0;
+      margin: 0;
+      align-items: center;
+    }
+
+    li {
+      margin: 0 5px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+      width: 120px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      line-height: 1;
+      transition: background-color 0.2s ease;
+    }
+
+    a:hover {
+      background-color: #94bfa7;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .form-container {
+      display: flex;
+      justify-content: center; /* Center horizontally */
+      align-items: flex-start; /* Align to the top */
+      height: 20vh;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      width: 300px;
+      outline: none;
+    }
+
+    input[type="submit"] {
+      background-color: #94bfa7;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #6c9c89;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      {% load static %}
+      <img src="{% static 'images/logo.png' %}" alt="Logo">
+    </div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'services' %}">Services</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="form-container">
+    <form  method="GET">
+      <h2>What is the food Name?</h2>
+      <input type="text" name="food_query" placeholder="Enter food name">
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+</body>
+</html>

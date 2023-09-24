@@ -1,0 +1,275 @@
+   body {
+       margin: 0;
+       padding: 0;
+       font-family: 'Work Sans', Arial, sans-serif;
+   }
+   
+   header {
+       display: flex;
+       justify-content: space-between;
+       align-items: center;
+       background: linear-gradient(to right, #cce8cc, #f6efee);
+       padding: 10px 20px;
+   }
+   
+   .navbar {
+       display: flex;
+   }
+   
+   ul {
+       list-style: none;
+       display: flex;
+       padding: 0;
+       margin: 0;
+       align-items: center;
+   }
+   
+   li {
+       margin: 0 5px;
+   }
+   
+   a {
+       text-decoration: none;
+       color: #333;
+       width: 120px;
+       height: 40px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       border-radius: 5px;
+       line-height: 1;
+       transition: background-color 0.2s ease;
+   }
+   
+   a:hover {
+       background-color: #94bfa7;
+   }
+   
+   .logo img {
+       height: 40px;
+   }
+   
+   .content {
+       display: flex;
+       margin: 20px;
+   }
+   
+   .left {
+       flex: 1;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       overflow: hidden;
+   }
+   /* Set the left div's background image */
+   /* .left-image {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+    }
+    
+    .left img {
+        width: 100%;
+        height: 100%;
+    } */
+   
+   .left {
+       position: relative;
+       /* Ensure the container is positioned relative */
+   }
+   
+   .left a {
+       display: block;
+       /* Set the anchor tag to a block-level element */
+       width: 100%;
+       /* Set the anchor's width to fill the entire div */
+       height: 100%;
+       /* Set the anchor's height to fill the entire div */
+   }
+   
+   .left img {
+       width: 100%;
+       /* Set the image width to fill the anchor tag */
+       height: 100%;
+       /* Set the image height to fill the anchor tag */
+       object-fit: cover;
+       /* Scale the image to cover the entire anchor tag while preserving its aspect ratio */
+   }
+   
+   .right {
+       flex: 1;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center;
+   }
+   
+   .right h1 {
+       font-family: 'Work Sans';
+       font-size: 45px;
+       font-weight: bold;
+       color: black;
+   }
+   
+   form {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+   }
+   
+   input[type="search"] {
+       padding: 10px;
+       font-size: 16px;
+       border: 1px solid #ccc;
+       border-radius: 5px;
+       margin-bottom: 10px;
+       width: 200px;
+   }
+   
+   input[type="submit"] {
+       background-color: #94bfa7;
+       color: #fff;
+       border: none;
+       padding: 10px 20px;
+       font-size: 16px;
+       border-radius: 5px;
+       cursor: pointer;
+   }
+   
+   input[type="submit"]:hover {
+       background-color: #6c9c89;
+   }
+   
+   form {
+       margin: 50px;
+   }
+   
+   input {
+       outline: none;
+   }
+   
+   input::-webkit-search-decoration,
+   input::-webkit-search-cancel-button {
+       display: none;
+   }
+   
+   input[type=search] {
+       padding: 9px 10px 9px 32px;
+       width: 55px;
+       background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+       border: solid 1px #ccc;
+       -webkit-border-radius: 10em;
+       -moz-border-radius: 10em;
+       border-radius: 10em;
+       -webkit-transition: all .5s;
+       -moz-transition: all .5s;
+       transition: all .5s;
+   }
+   
+   input[type=search]:focus {
+       width: 130px;
+       background-color: #fff;
+       border-color: #66CC75;
+       /* ... (Previous CSS code) ... */
+       box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+       -moz-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+       box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+   }
+   /* Equal division of left and right divs */
+   
+   @media (max-width: 767px) {
+       .content {
+           flex-direction: column;
+       }
+       .left,
+       .right {
+           flex: 1;
+       }
+   }
+   /* Additional CSS for improved layout on larger screens */
+   
+   @media (min-width: 768px) {
+       .content {
+           flex-direction: row;
+       }
+       .left {
+           height: 100vh;
+       }
+       .right {
+           padding: 0 20px;
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+       }
+   }
+   /* Additional CSS for better readability */
+   
+   .right h1 {
+       margin-bottom: 5px;
+       font-family: 'Work Sans';
+       font-size: 45px;
+       font-weight: bold;
+   }
+   
+   form {
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+   }
+   
+   input[type="search"] {
+       padding: 10px;
+       font-size: 16px;
+       border: 1px solid #ccc;
+       border-radius: 5px;
+       margin-bottom: 10px;
+       width: 200px;
+   }
+   
+   input[type="submit"] {
+       background-color: #94bfa7;
+       color: #fff;
+       border: none;
+       padding: 10px 20px;
+       font-size: 16px;
+       border-radius: 5px;
+       cursor: pointer;
+   }
+   
+   input[type="submit"]:hover {
+       background-color: #6c9c89;
+   }
+   /* Additional CSS for the search input */
+   
+   input {
+       outline: none;
+   }
+   
+   input::-webkit-search-decoration,
+   input::-webkit-search-cancel-button {
+       display: none;
+   }
+   
+   input[type=search] {
+       padding: 9px 10px 9px 32px;
+       width: 55px;
+       background: #ededed url(https://static.tumblr.com/ftv85bp/MIXmud4tx/search-icon.png) no-repeat 9px center;
+       border: solid 1px #ccc;
+       -webkit-border-radius: 10em;
+       -moz-border-radius: 10em;
+       border-radius: 10em;
+       -webkit-transition: all .5s;
+       -moz-transition: all .5s;
+       transition: all .5s;
+   }
+   
+   input[type=search]:focus {
+       width: 130px;
+       background-color: #fff;
+       border-color: #66CC75;
+       -webkit-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+       -moz-box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+       box-shadow: 0 0 5px rgba(109, 207, 246, .5);
+   }

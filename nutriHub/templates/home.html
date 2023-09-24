@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}">
+<!-- Include your CSS stylesheets -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/light-theme.css' %}" id="theme-stylesheet">
+<link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}">
+
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <title>NutriHub </title>
+  <link>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Work Sans', Arial, sans-serif;
+    background: linear-gradient(to right, #cce8cc, #f6efee);
+  }
+</style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="{% static 'images/logo.png' %}" alt="Logo">
+    </div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'services' %}">Services</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="content">
+    <div class="left">
+      <a href="{% url 'recipes' %}">
+        {% load static %}
+        <img src="{% static 'images/image.jpg' %}" alt="Image">
+      </a>
+    </div>
+
+
+    <div class="right">
+      <h1 style="font-family: 'Lora', serif; font-size: 70px; color: #023928; margin-bottom: -35px; text-align: center;">Ready to Count your Calories?</h1>
+      <form action="{% url 'searchfood' %}" method="GET">
+          <input type="submit" value="Go">
+      </form>
+  </div>
+  </section>
+
+</body>
+</html>

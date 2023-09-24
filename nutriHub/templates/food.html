@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <title>Recipies</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Work Sans', Arial, sans-serif;
+      background: linear-gradient(to right, #cce8cc, #f6efee);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(to right, #cce8cc, #f6efee);
+      padding: 10px 20px;
+    }
+
+    .navbar {
+      display: flex;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      padding: 0;
+      margin: 0;
+      align-items: center;
+    }
+
+    li {
+      margin: 0 5px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #333;
+      width: 120px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      line-height: 1;
+      transition: background-color 0.2s ease;
+    }
+
+    a:hover {
+      background-color: #94bfa7;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .form-container {
+      display: flex;
+      justify-content: center; 
+      align-items: flex-start;
+      height: 20vh;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      width: 300px;
+      outline: none;
+    }
+
+    input[type="submit"] {
+      background-color: #94bfa7;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+     input[type="submit"]:hover {
+      background-color: #6c9c89;
+    }
+
+    .search-results {
+      margin-top: 20px;
+      width: 100%; 
+      text-align: center;
+    }
+
+    /* Add hover effect to list items */
+  .search-results li:hover {
+  background-color: #6c9c89;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02); /* Optional: Slightly scale the item on hover */
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+   /* Add hover effect to list items */
+.search-results li:hover {
+  background: linear-gradient(to right, #cce8cc, #f6efee);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Change font color and button color on hover */
+.search-results li:hover h4,
+.search-results li:hover p {
+  color: black; 
+}
+
+.search-results li:hover .recipe-url a {
+  background-color: #000; /* Black button color */
+  color: white; /* Text color for the button */
+  transform: scale(0.95); /* Zoom-out effect */
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+
+    .search-results ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .search-results li {
+      background-color: white;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      padding: 10px;
+      list-style-type: none; 
+      display: flex; 
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      
+    }
+
+    .search-results h4 {
+      font-size: 20px;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .search-results p {
+      font-size: 16px;
+      color: #555;
+      margin: 3px 0;
+    }
+
+    .recipe-url {
+      text-align: center;
+      margin-top: 10px;
+      
+    }
+
+    .recipe-url a {
+      text-decoration: none;
+      color: #fff;
+      background-color: #94bfa7;
+      padding: 8px 16px;
+      border-radius: 5px;
+      transition: background-color 0.2s ease;
+      
+    }
+
+    .recipe-url a:hover {
+      background-color: #6c9c89;
+    }
+
+    .search-results ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0; 
+    }
+  .recipe-url-button {
+    background-color: #94bfa7;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+  }
+    .recipe-url-button:hover {
+      background-color: #000; 
+      color: #fff;}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      {% load static %}
+      <img src="{% static 'images/logo.png' %}" alt="Logo">
+    </div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'services' %}">Services</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <div class="search-results">
+
+    {% if results %}
+      <h3>Search Results for '{{ query }}':</h3>
+      
+            
+              {% for result in results %}
+                <li>
+                  <h4>{{ result.recipe_name }}</h4>
+                  <p><strong>Description:</strong> {{ result.recipe_description }}</p>
+                  <p><strong>ID:</strong> {{ result.recipe_id }}</p>
+                  <p><strong>Nutrition:</strong> {{ result.recipe_nutrition }}</p>
+                  <p class="recipe-url"><a href="{{ result.recipe_url }}" target="_blank" >Visit Website</a></p>
+                </li>
+              {% endfor %}
+         
+    {% endif %}
+  </div>
+
+</body>
+</html>

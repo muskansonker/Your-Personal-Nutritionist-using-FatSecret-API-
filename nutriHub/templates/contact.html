@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600&display=swap" rel="stylesheet">
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/stylesheet.css' %}">
+  
+  <title>Contact Us</title>
+  <style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Work Sans', Arial, sans-serif;
+        background: linear-gradient(to right, #cce8cc, #f6efee);
+      }
+    
+    .contact-container {
+      display: flex;
+      justify-content: space-around;
+      padding: 20px;
+    }
+    .contact-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    .contact-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .contact-content {
+      flex: 1;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+    .contact-content h2 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .contact-content p {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+    .contact-content label {
+      font-size: 16px;
+      display: block;
+      margin-bottom: 5px;
+    }
+    .contact-content input,
+    .contact-content textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 15px;
+      resize: vertical;
+    }
+    .contact-content input[type="submit"] {
+      background-color: #94bfa7;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .contact-content input[type="submit"]:hover {
+      background-color: #6c9c89;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+        <img src="{% static 'images/logo.png' %}" alt="Logo">
+    </div>
+    <nav class="navbar">
+      <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'services' %}">Services</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="contact-container">
+    <div class="contact-image">
+      {% load static %}
+      <img src="{% static 'images/contact.jpg' %}" alt="Contact Image">
+    </div>
+    <div class="contact-content">
+      <h2>Contact Us</h2>
+      <p>Have a question, suggestion, or feedback? Feel free to get in touch with us. We're here to assist you.</p>
+      <form action="#" method="post">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required>
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        <input type="submit" value="Send Message">
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>
